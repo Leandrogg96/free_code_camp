@@ -24,16 +24,18 @@ def generate_password(length=16, nums=1, special_chars=1, uppercase=1, lowercase
             (special_chars, r'[^a-zA-Z0-9]') #any non-alphanumeric character. Shorthand: \W
 
         ]
-        #Check constraints 
         
-        '''
+        # Check constraints 
+        
+        """
         count = 0
         for constraint, pattern in constraints:
             if constraint <= len(re.findall(pattern, password)):
                 count += 1
             
         if count == 4:
-            break '''
+            break
+        """
         
         if all(
             constraint <= len(re.findall(pattern, password))
@@ -42,7 +44,8 @@ def generate_password(length=16, nums=1, special_chars=1, uppercase=1, lowercase
             break
 
     return password
-    
-new_password = generate_password()
-print(f'Generated password: {new_password}')
+
+if __name__ == '__main__':
+    new_password = generate_password()
+    print(f'Generated password: {new_password}')
 
